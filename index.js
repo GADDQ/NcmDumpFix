@@ -106,5 +106,5 @@ plugin.onLoad(async () => {
         const url = "https://ghproxy.com/https://github.com/taurusxin/ncmdump/releases/download/1.0/ncmdump-win64-1.0.zip";
         await betterncm.fs.writeFile("NcmDump\\ncmdump.zip", await (await fetch(url)).blob());
     }
-    if (!await betterncm.fs.unzip("NcmDump\\ncmdump.zip", "NcmDump")) betterncm.fs.remove("NcmDump\\ncmdump.zip");
+    if (await betterncm.fs.unzip("NcmDump\\ncmdump.zip", "NcmDump")) betterncm.fs.remove("NcmDump\\ncmdump.zip");
 });
