@@ -2,8 +2,9 @@
 
 function getNcmFilePath() {
     let NM_SETTING_CUSTOM = localStorage.getItem("NM_SETTING_CUSTOM");
-    NM_SETTING_CUSTOM = JSON.parse(NM_SETTING_CUSTOM);
-    return `${NM_SETTING_CUSTOM.storage.path}VipSongsDownload`;
+    path = JSON.parse(NM_SETTING_CUSTOM).storage.path;
+    if (path.charAt(path.length - 1) == "\\") return `${path}VipSongsDownload`;
+    return `${path}\\VipSongsDownload`;
 }
 
 
