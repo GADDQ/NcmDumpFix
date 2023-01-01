@@ -5,6 +5,8 @@
     "preview": "preview.png",
     "version": "1.0.3",
     "author": "沫烬染",
+    "author_links": ["https://github.com/mo-jinran"],
+    "type": "extension",
     "injects": {
         "Main": [
             {
