@@ -44,19 +44,7 @@ function restoreDefault() {
 
 // 一键解锁
 async function unlockNCM() {
-    let inputFileNameList = await betterncm.fs.readDir(plugin.getConfig("input"));
-    let outputFileNameList = await betterncm.fs.readDir(plugin.getConfig("output"));
-
-    inputFileNameList = inputFileNameList.filter(fileName => fileName.endsWith(".ncm"));
-    outputFileNameList = outputFileNameList.filter(fileName => !fileName.endsWith(".ncm"));
-
-    inputFileNameList = inputFileNameList.map(fileName => fileName.slice(0, fileName.lastIndexOf(".")));
-    outputFileNameList = outputFileNameList.map(fileName => fileName.slice(0, fileName.lastIndexOf(".")));
-
-    const fileNameList = inputFileNameList.filter(item => !inputFileNameList.filter(item => outputFileNameList.includes(item)).includes(item));
-    let owo = "";
-    for (const fileName of fileNameList) owo = owo.concat(`"${fileName}.ncm" `);
-    let cmdCommand = `${plugin.getConfig("output").slice(0, 2)} && cd ${plugin.getConfig("output")} && "${await betterncm.app.getDataPath()}\\NcmDump\\ncmdump.exe" ${owo}`;
+    let cmdCommand = `cd /D ${plugin.getConfig("output")} && "${await betterncm.app.getDataPath()}\\NcmDump\\ncmdump.exe" ${plugin.getConfig("input")}\\*.ncm`;
     await betterncm.app.exec(`cmd /c "${cmdCommand}"`, false, true);
 }
 
