@@ -44,7 +44,7 @@ function restoreDefault() {
 
 // 一键解锁
 async function unlockNCM() {
-    let cmdCommand = `cd /D ${plugin.getConfig("output")} && "${await betterncm.app.getDataPath()}\\RevivedNcmDump\\ncmdump.exe" ${plugin.getConfig("input")}\\*.ncm`;
+    let cmdCommand = `cd /D ${plugin.getConfig("output")} && "${await betterncm.app.getDataPath()}\\NcmDumpFix\\ncmdump.exe" ${plugin.getConfig("input")}\\*.ncm`;
     await betterncm.app.exec(`cmd /c "${cmdCommand}"`, false, true);
 }
 
@@ -90,10 +90,10 @@ plugin.onConfig(tools => {
 plugin.onLoad(async () => {
     plugin.setConfig("input", plugin.getConfig("input", getNcmFilePath()));
     plugin.setConfig("output", plugin.getConfig("output", getNcmFilePath()));
-    if (!await betterncm.fs.exists("RevivedNcmDump")) await betterncm.fs.mkdir("RevivedNcmDump");
-    if (!await betterncm.fs.exists("RevivedNcmDump\\ncmdump.exe")) {
-        const url = "https://ghproxy.com/https://github.com/taurusxin/ncmdump/releases/download/1.0/ncmdump-win64-1.0.zip";
-        await betterncm.fs.writeFile("RevivedNcmDump\\ncmdump.zip", await (await fetch(url)).blob());
+    if (!await betterncm.fs.exists("NcmDumpFix")) await betterncm.fs.mkdir("NcmDumpFix");
+    if (!await betterncm.fs.exists("NcmDumpFix\\ncmdump.exe")) {
+        const url = "https://mirror.ghproxy.com/https://github.com/taurusxin/ncmdump/releases/download/1.0/ncmdump-win64-1.0.zip";
+        await betterncm.fs.writeFile("NcmDumpFix\\ncmdump.zip", await (await fetch(url)).blob());
     }
-    if (await betterncm.fs.unzip("RevivedNcmDump\\ncmdump.zip", "NcmDump")) betterncm.fs.remove("RevivedNcmDump\\ncmdump.zip");
+    if (await betterncm.fs.unzip("NcmDumpFix\\ncmdump.zip", "NcmDump")) betterncm.fs.remove("NcmDumpFix\\ncmdump.zip");
 });
