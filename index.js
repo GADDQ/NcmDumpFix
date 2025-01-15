@@ -92,7 +92,7 @@ plugin.onLoad(async () => {
     plugin.setConfig("output", plugin.getConfig("output", getNcmFilePath()));
     if (!await betterncm.fs.exists("NcmDumpFix")) await betterncm.fs.mkdir("NcmDumpFix");
     if (!await betterncm.fs.exists("NcmDumpFix\\ncmdump.exe")) {
-        const url = "https://mirror.ghproxy.com/https://github.com/taurusxin/ncmdump/releases/download/1.0/ncmdump-win64-1.0.zip";
+        const url = "https://ghproxy.net/https://github.com/taurusxin/ncmdump/releases/download/1.0/ncmdump-win64-1.0.zip";
         await betterncm.fs.writeFile("NcmDumpFix\\ncmdump.zip", await (await fetch(url)).blob());
     }
     if (await betterncm.fs.unzip("NcmDumpFix\\ncmdump.zip", "NcmDump")) betterncm.fs.remove("NcmDumpFix\\ncmdump.zip");
