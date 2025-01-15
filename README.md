@@ -11,6 +11,10 @@ Original project link: https://github.com/mo-jinran/NcmDump/
 
 # 更新日志
 
+- 2025/1/15
+
+**修复了由于ghproxy挂掉了而导致新用户不能下载依赖的问题**
+
 - 2024/3/31
 
 **已放弃加入Revived源，原因是我太笨比搞不来pr**
