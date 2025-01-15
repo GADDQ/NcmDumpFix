@@ -4,7 +4,8 @@ BetterNCM插件，使用NcmDump程序转换ncm文件为flac，mp3
 
 Original by @mo-jinran (https://github.com/mo-jinran/)
 
-Project link: https://github.com/mo-jinran/NcmDump/
+Original project link: https://github.com/mo-jinran/NcmDump/
+(已被删除/非公开)
 
 ![preview](preview.png)
 
