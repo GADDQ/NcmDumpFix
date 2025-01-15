@@ -3,8 +3,8 @@
     "name": "NcmDumpFix",
     "description": "使用NcmDump程序转换ncm文件为flac，mp3（带有特殊符号的文件名不行）",
     "preview": "preview.png",
-    "version": "1.0.1",
-    "author": "Earth Studio",
+    "version": "1.0.2",
+    "author": "Earth Studio, Mo jinran",
     "author_links": ["https://github.com/GADDQ/NcmDumpFix/"],
     "type": "extension",
     "injects": {
