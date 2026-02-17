@@ -44,10 +44,10 @@ function restoreDefault() {
 
 // 一键解锁
 async function unlockNCM() {
-    let cmdCommand = `cd /D ${plugin.getConfig("output")} && "${await betterncm.app.getDataPath()}\\NcmDumpFix\\ncmdump.exe" ${plugin.getConfig("input")}\\*.ncm`;
+    let cmdCommand = `cd /D ${plugin.getConfig("output")} && "${await betterncm.app.getDataPath()}\\NcmDumpFix\\ncmdump.exe" ${plugin.getConfig("input")}\\*.ncm -o ${plugin.getConfig("output")}`;
     await betterncm.app.exec(`cmd /c "${cmdCommand}"`, false, true);
 }
-
+//修改ncmdump 1.3.0以上版指定路径参数
 
 plugin.onConfig(tools => {
     return dom("div", {},
@@ -92,8 +92,9 @@ plugin.onLoad(async () => {
     plugin.setConfig("output", plugin.getConfig("output", getNcmFilePath()));
     if (!await betterncm.fs.exists("NcmDumpFix")) await betterncm.fs.mkdir("NcmDumpFix");
     if (!await betterncm.fs.exists("NcmDumpFix\\ncmdump.exe")) {
-        const url = "https://ghproxy.net/https://github.com/taurusxin/ncmdump/releases/download/1.0/ncmdump-win64-1.0.zip";
+        const url = "https://ghproxy.net/https://github.com/taurusxin/ncmdump/releases/download/1.5.0/ncmdump-1.5.0-windows-amd64-msvc.zip";
         await betterncm.fs.writeFile("NcmDumpFix\\ncmdump.zip", await (await fetch(url)).blob());
     }
     if (await betterncm.fs.unzip("NcmDumpFix\\ncmdump.zip", "NcmDump")) betterncm.fs.remove("NcmDumpFix\\ncmdump.zip");
 });
+//更新ncmdump到新版，解决名称中有特殊字符无法转换的问题
