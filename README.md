@@ -11,6 +11,10 @@ Original project link: https://github.com/mo-jinran/NcmDump/
 
 # 更新日志
 
+- 2026/2/17
+  **适配新版ncmdump后端**
+  **修复含特殊字符的歌名不能正常转换的问题**
+
 - 2025/1/15
 
   **修复了由于ghproxy挂掉了而导致新用户不能下载依赖的问题**
